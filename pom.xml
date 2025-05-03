@@ -97,14 +97,14 @@
 	
 	    <repository>
 	      <id>nexus</id>
-	      <name>KK FUNDA Releases Nexus Repository</name>
-	      <url>http://3.8.146.170:8081/repository/amazon-release/</url>
+	      <name>DPK Releases Nexus Repository</name>
+	      <url>http://18.134.226.204:8081/repository/amazon-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>KK FUNDA Snapshot Nexus Repository </name>
-	      <url>http://3.8.146.170:8081/repository/amazon-snapshot/</url>
+	      <name>DPK Snapshot Nexus Repository </name>
+	      <url>http://18.134.226.204:8081/repository/amazon-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
