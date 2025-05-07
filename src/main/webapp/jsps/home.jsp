@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1 align="center">Welcome to Praveen Kumar Dova DevOps Engineer</h1>
-<h1 align="center">Cloud Engineer(AWS),Health Innovation East,Cambridge,England</h1>
+<h1 align="center">DevOps Engineer, England</h1>
 <h1 align="center"> praveentechnologies.co.in</h1>
 <hr>
 <br>
