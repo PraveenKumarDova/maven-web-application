@@ -35,7 +35,7 @@ node {
 
     sh """
        curl -u praveen:praveen123 \
-       --upload-file /var/lib/jenkins/workspace/amazon-scripted-dev-PL/target/maven-web-application.war \
+       --upload-file /var/lib/jenkins/workspace/amazon-declarative-pl/target/maven-web-application.war \
        "http://18.130.119.121:8085/manager/text/deploy?path=/maven-web-application&update=true"
     """   
 
