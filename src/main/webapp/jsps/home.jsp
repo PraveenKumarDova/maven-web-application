@@ -1,118 +1,84 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.net.*" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>praveentechnologies Home Page</title>
-<link rel="icon" href="images/praveen.jpg">
-
-<style>
+  <meta charset="UTF-8">
+  <title>Welcome - Praveen Kumar Dova</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(to right, #f0f4f8, #d9e4f5);
-        margin: 0;
-        padding: 0;
-        color: #333;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #eef2f7;
+      color: #333;
     }
     header {
-        text-align: center;
-        background-color: #004080;
-        color: white;
-        padding: 20px 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      background: linear-gradient(to right, #003366, #0055aa);
+      padding: 40px 20px;
+      color: white;
+      text-align: center;
     }
-    h1, h3 {
-        margin: 10px 0;
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
     }
-    .info-box {
-        background-color: #ffffff;
-        margin: 20px auto;
-        padding: 20px;
-        width: 80%;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    header h2 {
+      margin: 10px 0 0;
+      font-weight: 400;
     }
-    .info-box h3 {
-        color: #0066cc;
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
     }
-    .contact {
-        text-align: center;
-        background-color: #e8f0fe;
-        padding: 20px;
-        margin-top: 20px;
-        border-top: 2px solid #004080;
+    .card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      padding: 20px 30px;
+      margin: 20px;
+      width: 80%;
+      max-width: 600px;
     }
-    .contact img {
-        border-radius: 50%;
-        margin-bottom: 10px;
-    }
-    .contact span {
-        display: block;
-        margin-top: 10px;
-        font-size: 16px;
+    .card h3 {
+      color: #0055aa;
+      margin-bottom: 15px;
     }
     footer {
-        text-align: center;
-        padding: 15px;
-        background-color: #004080;
-        color: white;
+      text-align: center;
+      padding: 30px 10px;
+      background-color: #dde8f0;
+      margin-top: 40px;
+      font-size: 0.9em;
     }
-    a {
-        color: #004080;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
-</style>
+  </style>
 </head>
 <body>
 
 <header>
-    <h1>Welcome to Praveen Kumar Dova</h1>
-    <h2>DevOps Engineer, London, England</h2>
-    <h3>praveentechnologies.co.in</h3>
+  <h1>Welcome to Praveen Kumar Dova</h1>
+  <h2>DevOps Engineer, London, England</h2>
+  <p><strong>praveentechnologies.co.in</strong></p>
 </header>
 
-<div class="info-box">
+<div class="content">
+  <div class="card">
     <h3>Server Side IP Address</h3>
-    <p>
-    <%
-        InetAddress inetAddress = InetAddress.getLocalHost();
-        String ip = inetAddress.getHostAddress();
-        out.println("Server Host Name: " + inetAddress.getHostName() + "<br>");
-        out.println("Server IP Address: " + ip);
-    %>
-    </p>
-</div>
-
-<div class="info-box">
+    <p><strong>Server Host Name:</strong> tomcat-server</p>
+    <p><strong>Server IP Address:</strong> 172.31.31.23</p>
+  </div>
+  
+  <div class="card">
     <h3>Client Side IP Address</h3>
-    <p>
-    <% 
-        out.println("Client IP Address: " + request.getRemoteAddr() + "<br>");
-        out.println("Client Host Name: " + request.getRemoteHost()); 
-    %>
-    </p>
-</div>
-
-<div class="contact">
-    <img src="images/praveen.jpg" alt="Praveen Logo" width="100">
-    <span><strong>praveentechnologies</strong><br>
-    Rain Tree Park, Malaysian Township, Hyderabad<br>
-    +91-9490000198<br>
-    <a href="mailto:praveenkumardova@gmail.com">praveenkumardova@gmail.com</a></span>
-</div>
-
-<div class="info-box">
-    <h3>Service:</h3>
-    <p><a href="services/employee/getEmployeeDetails">Get Employee Details</a></p>
+    <p><strong>Client IP Address:</strong> 86.29.30.164</p>
+    <p><strong>Client Host Name:</strong> 86.29.30.164</p>
+  </div>
 </div>
 
 <footer>
-    <p>praveentechnologies.co.in, Development Center.</p>
-    <p><small>Copyright 2025 by <a href="https://google.com/">praveentechnologies.co.in</a></small></p>
+  <p><strong>praveentechnologies</strong></p>
+  <p>Rain Tree Park, Malaysian Township, Hyderabad</p>
+  <p>+91-9490000198</p>
 </footer>
 
 </body>
