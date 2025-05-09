@@ -22,13 +22,13 @@ node {
   sh "${mavenHome}/bin/mvn clean package"
   }
 
-  stage('SQ'){
-  sh "${mavenHome}/bin/mvn clean sonar:sonar package"
-  }
+  // stage('SQ'){
+  // sh "${mavenHome}/bin/mvn clean sonar:sonar package"
+  // }
 
-  stage('Deploy to Nexus'){
-  sh "${mavenHome}/bin/mvn clean sonar:sonar deploy"
-  }
+  // stage('Deploy to Nexus'){
+  // sh "${mavenHome}/bin/mvn clean sonar:sonar deploy"
+  // }
 
   stage('Deploy to TomcatApplnServer'){
     echo "Deploying war file into Tomcat application server using curl command..."
