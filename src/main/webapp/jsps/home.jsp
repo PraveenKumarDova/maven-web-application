@@ -9,7 +9,7 @@
 </head>
 </head>
 <body>
-<h1 align="center">Welcome to PASS ANGELS Technologies India Ltd</h1>
+<h1 align="center">Welcome to PASS ANGELS Technologies India(p) Ltd</h1>
 <h1 align="center"> PASS ANGELS</h1>
 <hr>
 <br>
