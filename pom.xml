@@ -5,7 +5,7 @@
 	<groupId>com.kk</groupId>
 	<artifactId>maven-web-application-praveentechnologies</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	
 	<name>maven-web-application</name>
 
@@ -98,13 +98,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>DPK Releases Nexus Repository</name>
-	      <url>http://13.40.148.107:8081/repository/amazon-release/</url>
+	      <url>http://13.42.105.98:8081/repository/jio-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>DPK Snapshot Nexus Repository </name>
-	      <url>http://13.40.148.107:8081/repository/amazon-snapshot/</url>
+	      <url>http://13.42.105.98:8081/repository/jio-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
