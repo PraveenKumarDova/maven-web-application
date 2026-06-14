@@ -32,7 +32,7 @@ jobs:
     - name: Deploy war file into Tomcat server
       env:
         TOMCAT_URL: ${{ secrets.TOMCAT_URL }}
-        TOMCAT_USERNAME: ${{ secrets.TOMCAT_USER }}
+        TOMCAT_USERNAME: ${{ secrets.TOMCAT_USERNAME }}
         TOMCAT_PASSWORD: ${{ secrets.TOMCAT_PASSWORD }}
 
       run: |
