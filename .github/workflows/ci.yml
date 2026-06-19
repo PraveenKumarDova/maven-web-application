@@ -18,6 +18,8 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      - run: sudo apt install maven -y
+
       - name: Build with maven
         run: mvn clean package 
 
