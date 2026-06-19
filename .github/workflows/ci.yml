@@ -23,9 +23,9 @@ jobs:
 
       - name: Deploy the war file into tomcat application server
         env:
-        TOMCAT_URL: ${{ secrets.TOMCAT_URL }}
-        TOMCAT_USERNAME: ${{ secrets.TOMCAT_USERNAME }}
-        TOMCAT_PASSWORD: ${{ secrets.TOMCAT_PASSWORD }}
+          TOMCAT_URL: ${{ secrets.TOMCAT_URL }}
+          TOMCAT_USERNAME: ${{ secrets.TOMCAT_USERNAME }}
+          TOMCAT_PASSWORD: ${{ secrets.TOMCAT_PASSWORD }}
 
         run: |
           WAR=$(ls target/*.war | head -n 1 )  # indicates the first war file to be stored in WAR variable
