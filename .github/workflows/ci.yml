@@ -30,4 +30,3 @@ jobs:
         run: |
           WAR=$(ls target/*.war | head -n 1 )  # indicates the first war file to be stored in WAR variable
           curl -sS -u "${TOMCAT_USERNAME}:${TOMCAT_PASSWORD}" --upload-file "$WAR" "${TOMCAT_URL}/manager/text/deploy?path=/maven-web-application&update=true"
-
