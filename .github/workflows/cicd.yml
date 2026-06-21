@@ -43,9 +43,9 @@ jobs:
               sudo dpkg -i trivy_0.71.2_Linux-64bit.deb
 
             - name: Trivy Filesystem scan
-              run: trivy fs --format table -o fs-report.json
+              run: trivy fs --format table -o fs-report.json .
 
-              
+
 
 
               
