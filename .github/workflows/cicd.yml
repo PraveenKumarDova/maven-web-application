@@ -33,6 +33,20 @@ jobs:
             - name: Sonarqube code quality anlysis report
               run: mvn sonar:sonar
 
+    Security-check:
+        runs-on: [ self-hosted, linux, x64 ]
+        needs: SonarQube
+        steps:
+            - name: Install trivy
+              run: |
+              wget https://github.com/aquasecurity/trivy/releases/download/v0.71.2/trivy_0.71.2_Linux-64bit.deb
+              sudo dpkg -i trivy_0.71.2_Linux-64bit.deb
+
+            - name: Trivy Filesystem scan
+              run: trivy fs --format table -o fs-report.json
+
+              
+
 
               
 
