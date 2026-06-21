@@ -25,7 +25,7 @@ jobs:
       - name: Build using maven
         run: mvn -B clean package
 
-  SonarQube:
+  sonarqube:
     runs-on: [self-hosted, linux, x64]
     needs: build
 
@@ -43,7 +43,7 @@ jobs:
       - name: Sonarqube code quality analysis report
         run: mvn sonar:sonar
 
-  Security-check:
+  security-check:
     runs-on: [self-hosted, linux, x64]
     needs: SonarQube
 
@@ -59,3 +59,13 @@ jobs:
       - name: Trivy Filesystem Scan
         run: |
           trivy fs --format table -o fs-report.txt .
+
+  docker-build:
+    runs-on: [ self-hosted, linux, x64 ]
+    needs: security-check
+
+    steps:
+        - name: Build docker image
+          run: |
+           docker build -t ${{ secrets.Docker_Repository }}:${{ github.sha }} .
+
