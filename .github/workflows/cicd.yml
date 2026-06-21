@@ -6,7 +6,7 @@ on: [ workflow_dispatch ]
 jobs:
 
     build:
-        runs-on: cirunner
+        runs-on: [self-hosted, linux, x64 ]
 
         steps:
             - name: Checkout the code
