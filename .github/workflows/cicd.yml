@@ -26,6 +26,14 @@ jobs:
 
             - name: Build using maven
               run: mvn -B clean package
+    SonarQube:
+        runs-on: [ self-hosted, linux, x64 ]
+        needs: build
+        steps:
+            - name: Sonarqube code quality anlysis report
+              run: mvn sonar:sonar
 
+
+              
 
        
