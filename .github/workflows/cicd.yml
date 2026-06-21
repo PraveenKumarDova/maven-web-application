@@ -37,6 +37,10 @@ jobs:
         runs-on: [ self-hosted, linux, x64 ]
         needs: SonarQube
         steps:
+
+            - name: Checkout code
+              uses: actions/checkout@v4
+
             - name: Install trivy
               run: |
               wget https://github.com/aquasecurity/trivy/releases/download/v0.71.2/trivy_0.71.2_Linux-64bit.deb
