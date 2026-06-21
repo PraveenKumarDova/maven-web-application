@@ -45,7 +45,7 @@ jobs:
 
   security-check:
     runs-on: [self-hosted, linux, x64]
-    needs: SonarQube
+    needs: sonarqube
 
     steps:
     #   - name: Checkout Code
@@ -68,7 +68,7 @@ jobs:
 
         - name: checkout code
           uses: actions/checkout@v4
-          
+
         - name: Build docker image
           run: |
            docker build -t ${{ secrets.Docker_Repository }}:${{ github.sha }} .
