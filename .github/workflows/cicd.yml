@@ -1,58 +1,61 @@
-
 name: CICD pipeline 2 workflow
 
-on: [ workflow_dispatch ]
+on: [workflow_dispatch]
 
 jobs:
+  build:
+    runs-on: [self-hosted, linux, x64]
 
-    build:
-        runs-on: [self-hosted, linux, x64 ]
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
 
-        steps:
-            - name: Checkout the code
-              uses: actions/checkout@v4
+      - name: Setup jdk-17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
 
-            - name: Setup jdk-17
-              uses: actions/setup-java@v4
-              with: 
-                java-version: '17'
-                distribution: 'temurin'
-                cache: maven
+      - name: Maven installation
+        run: |
+          sudo apt update
+          sudo apt install maven -y
 
-            - name: Maven installation
-              run: |
-               sudo apt update
-               sudo apt install maven -y
+      - name: Build using maven
+        run: mvn -B clean package
 
-            - name: Build using maven
-              run: mvn -B clean package
-    SonarQube:
-        runs-on: [ self-hosted, linux, x64 ]
-        needs: build
-        steps:
-            - name: Sonarqube code quality anlysis report
-              run: mvn sonar:sonar
+  SonarQube:
+    runs-on: [self-hosted, linux, x64]
+    needs: build
 
-    Security-check:
-        runs-on: [self-hosted, linux, x64]
-        needs: SonarQube
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
 
-        steps:
-            - name: Checkout Code
-            uses: actions/checkout@v4
+      - name: Setup jdk-17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
 
-            - name: Install Trivy
-            run: |
-                wget https://github.com/aquasecurity/trivy/releases/download/v0.71.2/trivy_0.71.2_Linux-64bit.deb
-                sudo dpkg -i trivy_0.71.2_Linux-64bit.deb
+      - name: Sonarqube code quality analysis report
+        run: mvn sonar:sonar
 
-            - name: Trivy Filesystem Scan
-            run: |
-                trivy fs --format table -o fs-report.json .
+  Security-check:
+    runs-on: [self-hosted, linux, x64]
+    needs: SonarQube
 
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
+      - name: Install Trivy
+        run: |
+          wget https://github.com/aquasecurity/trivy/releases/download/v0.71.2/trivy_0.71.2_Linux-64bit.deb
+          sudo dpkg -i trivy_0.71.2_Linux-64bit.deb
 
-
-              
-
-       
+      - name: Trivy Filesystem Scan
+        run: |
+          trivy fs --format table -o fs-report.txt .
