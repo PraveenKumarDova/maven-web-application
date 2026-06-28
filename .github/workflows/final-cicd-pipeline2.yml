@@ -49,6 +49,19 @@ jobs:
 
             - name: trivy filesystem scan
               run: trivy fs --format table -o fs-report.json .
+
+
+    docker-build:
+        runs-on: self-hosted
+        needs: security-check
+        steps:
+            - name: Build docker image
+              run: |
+               docker build -t ${{ secrets.Docker_Repository }}:${{ github.sha }} .
+
+            - name: Push images to docker hub
+              run: |
+               docker push ${{ secrets.Docker_Repository }}:${{ github.sha }}
               
               
 
